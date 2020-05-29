@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/miwhag/paper_trail_backend/issues"
   },
-  "homepage": "https://github.com/miwhag/paper_trail_backend#readme"
+  "homepage": "https://github.com/miwhag/paper_trail_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
