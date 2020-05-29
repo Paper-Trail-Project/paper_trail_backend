@@ -1,0 +1,19 @@
+{
+  "name": "paper_trail",
+  "version": "1.0.0",
+  "description": "financial literacy app for teens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/miwhag/paper_trail_backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miwhag/paper_trail_backend/issues"
+  },
+  "homepage": "https://github.com/miwhag/paper_trail_backend#readme"
+}
