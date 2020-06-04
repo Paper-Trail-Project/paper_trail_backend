@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable("users", users => {
-    //auto incrementing id
+    //auto incrementing id field
     users.increments()
     users.string("name")
     users.string("username")

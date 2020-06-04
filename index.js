@@ -7,8 +7,18 @@ const config = require("./knexfile")[process.env.NODE_ENV || "development"]; //f
 const database = knex(config);
 
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/users", (req, res) => {
+  database("users").select()
+    .then(users => {
+      res.json({ users })
+    })
 });
+
+app.get("/users/:id", (req, res) => {
+  database("users").select().where({ id: req.params.id }).first()
+    .then(user => {
+      res.json({ user })
+    })
+})
 
 app.listen(8000);
