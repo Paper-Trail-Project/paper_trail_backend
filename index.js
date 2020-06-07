@@ -8,9 +8,9 @@ const database = knex(config);
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-// this will allow us to parse the response to json 
+// this will allow us to parse the raw response to json 
 
-const bcrypt = require("bcrypt")
+const {hashPassword} = require('./authenticate')
 
 
 app.get("/", (req, res) =>  {
@@ -31,11 +31,8 @@ app.get("/users/:id", (req, res) => {
     })
 })
 
-app.post("/users", (req,res) => {
-  const { username, password } = req.body
-  bcrypt.hash(password, 12).then(hashedPassword => {
-    res.json({ username, hashedPassword})
-  })
+app.post("/users",hashPassword, async (req,res) => {
+  
 })
 
 
