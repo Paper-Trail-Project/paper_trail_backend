@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 // this will allow us to parse the raw response to json 
 
-const {hashPassword} = require('./authenticate')
+const {hashPassword, login} = require('./authenticate')
 
 
 app.get("/", (req, res) =>  {
@@ -33,6 +33,10 @@ app.get("/users/:id", (req, res) => {
 
 app.post("/users",hashPassword, async (req,res) => {
   
+})
+
+app.post("/login", login, async (req, res) => {
+
 })
 
 
