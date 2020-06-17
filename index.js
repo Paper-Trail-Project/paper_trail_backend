@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const cors = require("cors")
+app.use(cors())
 const knex = require("knex"); //package
 //should give the config object for whichever environment we are in (development/production)
 const config = require("./knexfile")[process.env.NODE_ENV || "development"]; //file
@@ -12,7 +14,6 @@ app.use(bodyParser.json())
 const {authenticate} = require('./authenticate')
 const {login} = require('./controllers/loginController')
 const {hashPassword, getAllUsers, getUser} = require('./controllers/userController')
-
 
 app.get("/", (req, res) =>  {
 res.send('API Status: Running')
@@ -29,5 +30,6 @@ app.get("/example", authenticate, async (req, res) => {
     secretInfo: "Here you go! This endpoint is authenticated"
 })
 })
+
 
 app.listen(process.env.PORT || 8000);
