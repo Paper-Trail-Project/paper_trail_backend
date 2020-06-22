@@ -26,7 +26,7 @@ async function login (req, res){
         id: foundUser.id,
         username: foundUser.username
     }, process.env.SECRET)
-    res.json({token})
+    res.json({ token, foundUser })
 }
 
 module.exports = {
