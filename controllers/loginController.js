@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 require("dotenv").config()
 
 async function login (req, res){
+  console.log(req)
     const { username, password} = req.body
     const foundUser = await database("users")
       .select()
