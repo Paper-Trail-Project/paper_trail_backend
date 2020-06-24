@@ -18,6 +18,17 @@ function getUser (req, res){
     })
 }
 
+function updateMonster (req, res){
+    database("users")
+    .select()
+    .where({id: req.params.id })
+    .update(req.body)
+    .returning('*')
+    .then( data => {
+        res.status(201).json(data)
+    })
+}
+
 async function hashPassword (req, res){
   const { name, username, password } = req.body
   bcrypt.hash(password, 12).then(hashedPassword => {
@@ -36,5 +47,6 @@ async function hashPassword (req, res){
 module.exports = {
     getAllUsers: getAllUsers,
     getUser: getUser,
-    hashPassword: hashPassword
+    hashPassword: hashPassword,
+    updateMonster: updateMonster
 }
