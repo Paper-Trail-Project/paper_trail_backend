@@ -27,7 +27,7 @@ async function login (req, res){
         username: foundUser.username
     }, process.env.SECRET)
 
-    res.json({token: token, name: foundUser.name, username: foundUser.username })
+    res.json({token: token, name: foundUser.name, username: foundUser.username, id: foundUser.id})
 
 }
 
