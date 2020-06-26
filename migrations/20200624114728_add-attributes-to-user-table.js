@@ -5,7 +5,6 @@ exports.up = function(knex) {
        users.decimal("money", 14, 2)
        users.integer("energy")
        users.specificType("inventory", 'text ARRAY')
-
       })
   
 };
