@@ -27,7 +27,13 @@ async function login (req, res){
         username: foundUser.username
     }, process.env.SECRET)
 
-    res.json({token: token, name: foundUser.name, username: foundUser.username, id: foundUser.id})
+    res.json({
+      token: token, 
+      name: foundUser.name, 
+      username: foundUser.username, 
+      id: foundUser.id, 
+      money: foundUser.money, 
+      monster_img: foundUser.monster_img})
 
 }
 

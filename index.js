@@ -15,6 +15,7 @@ app.use(bodyParser.json())
 const {authenticate} = require('./authenticate')
 const {login} = require('./controllers/loginController')
 const {hashPassword, getAllUsers, getUser, updateMonster} = require('./controllers/userController')
+const {getAllChapters, getChapter, getAllSections, getSection} = require('./controllers/chapterController')
 
 
 app.get("/", (req, res) =>  {
@@ -23,6 +24,10 @@ res.send('API Status: Running')
 
 app.get("/users", getAllUsers)
 app.get("/users/:id", getUser)
+app.get('/chapters', getAllChapters)
+app.get("/chapters/:id", getChapter)
+app.get('/sections', getAllSections)
+app.get("/sections/:id", getSection)
 app.patch("/users/:id", updateMonster)
 app.post("/users",hashPassword)
 app.post("/login", login)
